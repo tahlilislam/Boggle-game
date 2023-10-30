@@ -1,0 +1,69 @@
+{% extends 'base.html'%}
+{%block title%} Boggle Game{%endblock%}
+{%block content%}
+<section id="boggleBoard">
+    <div class="container">
+        <h1 class="display-4 text-center">Boggle Game</h1>
+    </div>
+ <!-- Start of main container -->
+    <div class="container d-flex" id="main-container"> <!-- This is the new parent container -->
+
+        <!-- Boggle Form Section -->
+        <div class="boggle-form-container"> 
+            <div class="boggle-form"> 
+
+                <form action="" method="get" id="word-form">
+                    <input type="text" class = "form-control shadow-none" placeholder="Click on letters to guess..." 
+                    name="user-guess" id="user-guess" required
+                    aria-label="User's current guess" readonly aria-readonly="true">
+                    <button class="btn btn-primary">Submit</button>
+                </form>
+                <div id="message" class="alert" role="alert"></div>
+                <div id="score-display" class="mt-3">
+                    <p>High Score: 
+                    <b>{{ highscore }}</b> 
+                    in {{ nplays }} plays
+                  </p>
+            
+                  <p>
+                    Score: <b class="score">0</b>
+                    Seconds Left: <b class="timer"></b>
+                  </p>
+                </div>
+
+
+            </div>  
+        </div>
+
+        <!-- Boggle Board Section -->
+        <div class="boggle-board-container" id="boggle-container">
+                {%for letters in board%} 
+                <div class="row row-cols-5 g-0 custom-row" data-row="{{loop.index0}}" > 
+            
+                    {%for letter in letters%}
+                    <div class="col custom-column" data-col="{{loop.index0}}">
+                        <div class="box boggle-box d-flex justify-content-center align-items-center">{{letter}}</div>
+                    </div>
+                    {%endfor%}
+                </div>
+                {%endfor%}
+        </div>
+        
+
+    </div> <!-- End of main container -->
+
+    <div class="container-md found-words-div">
+        <h2 class="h5 text-decoration-underline p-1">Found Words</h2>
+        <div class="row row-cols-5">
+            <div class="col-sm">
+                <ul class="words">
+
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+{%endblock%}

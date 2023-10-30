@@ -1,0 +1,105 @@
+body {
+    background-color: rgb(240,244,255);
+    width: 100vw;
+    height: 100vh;
+}
+
+#boggle-container{
+    background-color: rgb(255,247,240);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4); /* This creates a slight shadow, giving the "elevated" effect */
+    width: 400px;
+    padding: 20px;
+    border-radius: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#main-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap; 
+}
+
+.boggle-form-container {
+    flex-basis: 40%; 
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .boggle-form-container {
+        flex-basis: 100%; 
+    
+}
+}
+.custom-column {
+    margin: 0;
+    padding: 0;
+
+}
+
+.boggle-box {
+    width: 60px;
+    height: 60px;
+    border: 1px solid transparent;
+    margin: 10px;
+   
+    font-size: 1.2rem; 
+
+    border-radius: 5px; 
+    background-color: white; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* This creates a slight shadow, giving the "elevated" effect */
+    transition: all 0.1s ease-in-out; /* Makes changes in state smooth */
+  }
+  .boggle-box:hover {
+    cursor: pointer;
+    background-color: aliceblue; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+  }
+  .boggle-box:active {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Reduces the shadow, giving the effect of being pressed down */
+    transform: scale(0.98); /* Slightly decreases size to give a "pushed" effect*/
+  }
+
+
+.selected {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Reduces the shadow, giving the effect of being pressed down */
+    background-color: aquamarine;
+    pointer-events: none;
+}
+
+.fake-focus {
+    outline: none; 
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1); /* Add a "glow" effect */
+}
+
+#user-guess {
+    margin-bottom: 10px;
+}
+
+#message {
+    display: none;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+
+.found-words-div {
+    border: 1px solid black;
+    margin-bottom: 40px;   
+}
+
+
+ul {
+    -webkit-column-count: 5;  
+    -moz-column-count: 5; 
+    column-count: 5;
+    
+    -webkit-column-gap: 50px; 
+    -moz-column-gap: 50px; 
+    column-gap: 50px;
+    
+    -webkit-column-rule: 1px single grey;
+    -moz-column-rule: 1px single grey; 
+    column-rule: 1px single grey;
+    }
